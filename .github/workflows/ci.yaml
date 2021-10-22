@@ -69,11 +69,16 @@ jobs:
         name: image
         run: sed -i /image:.*phpinfo/s/image:.*$/image:' 'phpinfo:${uuid}/ kube-compose.yaml
       -
+        name: nodeport
+        run: |
+          sed -i /port:/s/port:.*$/nodePort:' '30000/ kube-compose.yaml
+          sed -i /type:/s/ClusterIP/NodePort/ kube-compose.yaml
+      -
         name: deploy
         run: kubectl apply -f kube-compose.yaml
       -
         name: test
-        run: while true; do sleep 10; curl $( ifconfig | grep eth0 -A 1 | awk /inet/'{ print $2 }' )/src/index.php | grep phpinfo && break; done
+        run: while true; do sleep 10; curl $( ifconfig | grep eth0 -A 1 | awk /inet/'{ print $2 }' ):30000/src/index.php | grep phpinfo && break; done
   #openshift:
   
 

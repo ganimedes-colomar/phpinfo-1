@@ -3,7 +3,7 @@
 # phpinfo
 
 ```
-git clone https://github.com/sergiosanznieto/phpinfo-1
+git clone https://github.com/ganimedes-colomar/phpinfo-1
 cd phpinfo-1
 git checkout main
 ```

@@ -9,7 +9,7 @@ services:
       - src/index.php
       - -S 
       - 0.0.0.0:8080
-    configs:
+    config:
       - 
         mode: 0400
         source: phpinfo

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: phpinfo
-        image: academiaonline/phpinfo:2.0
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: Always
         livenessProbe:
           tcpSocket:
@@ -35,11 +35,3 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-        resources:
-          limits:
-            cpu: 100m
-            memory: 100M
-          requests:
-            cpu: 100m
-            memory: 100M
-

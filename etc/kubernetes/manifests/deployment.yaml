@@ -35,11 +35,3 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-        resources:
-          limits:
-            cpu: 100m
-            memory: 100M
-          requests:
-            cpu: 100m
-            memory: 100M
-

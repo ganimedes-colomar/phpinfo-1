@@ -20,7 +20,7 @@ objects:
         spec:
           containers:
           - name: phpinfo
-            image: academiaonline/phpinfo:2.0
+            image: ${image}
             imagePullPolicy: Always
             livenessProbe:
               tcpSocket:
@@ -74,3 +74,7 @@ objects:
       to:
         kind: Service
         name: phpinfo
+parameters:
+  - 
+    name: image
+    value: academiaonline/phpinfo:2.0
